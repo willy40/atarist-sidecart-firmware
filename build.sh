@@ -19,10 +19,10 @@ build_type=$2
 ST_WORKING_FOLDER=$working_folder/configurator stcmd make $build_type
 ST_WORKING_FOLDER=$working_folder stcmd make $build_type
 
-filename_tos="./dist/SIDECART.TOS"
+filename_tos="./dist/HELLO.TOS"
 
-# Copy the SIDECART.TOS file for testing purposes
-ST_WORKING_FOLDER=$working_folder stcmd cp ./configurator/dist/SIDECART.TOS $filename_tos
+# Copy the HELLO.TOS file for testing purposes
+ST_WORKING_FOLDER=$working_folder stcmd cp ./configurator/dist/HELLO.TOS $filename_tos
 
 filename="./dist/FIRMWARE.IMG"
 

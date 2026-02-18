@@ -6,7 +6,7 @@ ODIR = ./obj
 SOURCES_DIR = ./src
 BUILD_DIR = ./build
 DIST_DIR = ./dist
-EXE = SIDECART.TOS
+EXE = HELLO.TOS
 
 # VASM PARAMETERS
 # _DEBUG: 1 to enable debug, 0 to disable them
@@ -49,59 +49,12 @@ release: dist prepare
 prepare: clean
 	mkdir -p $(BUILD_DIR)
 
-clean-compile : clean main.o screen.o
+hello.o: prepare
+	$(CC) $(CFLAGS) $(SOURCES_DIR)/hello.c -o $(BUILD_DIR)/hello.o
 
-# All C files
-screen.o: prepare
-	$(CC) $(CFLAGS) $(SOURCES_DIR)/screen.c -o $(BUILD_DIR)/screen.o
-
-helper.o: prepare
-	$(CC) $(CFLAGS) $(SOURCES_DIR)/helper.c -o $(BUILD_DIR)/helper.o
-
-romselector.o: prepare
-	$(CC) $(CFLAGS) $(SOURCES_DIR)/romselector.c -o $(BUILD_DIR)/romselector.o
-
-floppyselector.o: prepare
-	$(CC) $(CFLAGS) $(SOURCES_DIR)/floppyselector.c -o $(BUILD_DIR)/floppyselector.o
-
-floppydb.o: prepare
-	$(CC) $(CFLAGS) $(SOURCES_DIR)/floppydb.c -o $(BUILD_DIR)/floppydb.o
-
-harddisk.o: prepare
-	$(CC) $(CFLAGS) $(SOURCES_DIR)/harddisk.c -o $(BUILD_DIR)/harddisk.o
-
-config.o: prepare
-	$(CC) $(CFLAGS) $(SOURCES_DIR)/config.c -o $(BUILD_DIR)/config.o
-
-reset.o: prepare
-	$(CC) $(CFLAGS) $(SOURCES_DIR)/reset.c -o $(BUILD_DIR)/reset.o
-
-network.o: prepare
-	$(CC) $(CFLAGS) $(SOURCES_DIR)/network.c -o $(BUILD_DIR)/network.o
-
-storage.o: prepare
-	$(CC) $(CFLAGS) $(SOURCES_DIR)/storage.c -o $(BUILD_DIR)/storage.o
-
-rtc.o: prepare
-	$(CC) $(CFLAGS) $(SOURCES_DIR)/rtc.c -o $(BUILD_DIR)/rtc.o
-
-main.o: prepare
-	$(CC) $(CFLAGS) $(SOURCES_DIR)/main.c -o $(BUILD_DIR)/main.o
-
-main: screen.o helper.o network.o config.o reset.o romselector.o floppyselector.o floppydb.o harddisk.o storage.o rtc.o main.o
+main: hello.o
 	$(CC) $(LIBCMINI)/lib/crt0.o \
-		  $(BUILD_DIR)/screen.o \
-		  $(BUILD_DIR)/romselector.o \
-		  $(BUILD_DIR)/floppyselector.o \
-		  $(BUILD_DIR)/floppydb.o \
-		  $(BUILD_DIR)/harddisk.o \
-		  $(BUILD_DIR)/config.o \
-		  $(BUILD_DIR)/reset.o \
-		  $(BUILD_DIR)/helper.o \
-		  $(BUILD_DIR)/network.o \
-		  $(BUILD_DIR)/storage.o \
-		  $(BUILD_DIR)/rtc.o \
-		  $(BUILD_DIR)/main.o \
+		  $(BUILD_DIR)/hello.o \
 		  -o $(BUILD_DIR)/$(EXE) $(LINKFLAGS);
 
 .PHONY: dist
