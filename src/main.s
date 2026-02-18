@@ -45,7 +45,7 @@ second:
 	dc.w GEMDOS_TIME 				;time
 	dc.w GEMDOS_DATE 				;date
 	dc.l end_configurator - configurator
-	dc.b "SIDECART.TOS",0
+	dc.b "HELLO.TOS",0
 
 	even
 
@@ -236,7 +236,7 @@ countdown:
   even
 
 configurator:
-	incbin configurator/dist/SIDECART.TOS  
+	incbin configurator/dist/HELLO.TOS  
 	even
 end_configurator:
 

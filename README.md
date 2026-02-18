@@ -82,10 +82,10 @@ export ST_WORKING_FOLDER=<ABSOLUTE_PATH_TO_THE_FOLDER_WHERE_YOU_CLONED_THE_REPO/
 stcmd make DEBUG_MODE=1 
 ```
 
-6. The outcome is `SIDECART.TOS` in the `dist` folder. This file is ready for execution on the Atari ST emulator or computer. If using Hatari, you can launch it as follows (assuming `hatari` is path-accessible):
+6. The outcome is `HELLO.TOS` in the `dist` folder. This file is ready for execution on the Atari ST emulator or computer. If using Hatari, you can launch it as follows (assuming `hatari` is path-accessible):
 
 ```
-hatari --fast-boot true --tos-res med configurator/dist/SIDECART.TOS &
+hatari --fast-boot true --tos-res med configurator/dist/HELLO.TOS &
 ```
 
 ## Releases
