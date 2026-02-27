@@ -384,9 +384,6 @@ static int run()
 #ifdef _DEBUG
     Cnecin();
 #else
-
-    restore_cpu_speed();
-
     char ch;
     while (1)
     {
