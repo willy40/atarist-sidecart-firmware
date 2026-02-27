@@ -383,7 +383,6 @@ static int run()
     flush_kbd();
 #ifdef _DEBUG
     Cnecin();
-    restoreResolutionAndPalette(&screenContext);
 #else
 
     restore_cpu_speed();
@@ -408,6 +407,10 @@ static int run()
         }
     }
 #endif
+
+    restore_cpu_speed();
+    restoreResolutionAndPalette(&screenContext);
+    return 0;
 }
 
 //================================================================
