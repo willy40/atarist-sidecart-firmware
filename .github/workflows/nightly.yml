@@ -15,7 +15,7 @@ jobs:
           - os: ubuntu-latest
             firmware_name: FIRMWARE.IMG
             boot_name: BOOT.BIN
-            tos_name: SIDECART.TOS
+            tos_name: HELLO.TOS
     steps:  
     - name: Checkout the code
       uses: actions/checkout@v3
