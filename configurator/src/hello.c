@@ -2,8 +2,10 @@
 
 int main(void)
 {
-    printf("Hello World!\n");
-    printf("Press any key to exit...\n");
-    getchar();
-    return 0;
+    SupExe(&run);
+    Pterm(0);
+}
+
+static void run(void) {
+    printf("\r\nHello World!\r\n");
 }
